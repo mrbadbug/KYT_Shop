@@ -1,22 +1,19 @@
 <?php
 session_start();
-include 'db.php';        // PDO connection
-include 'session.php';   // cartCount() and cartTotal() functions
+include 'db.php';        
+include 'session.php';   
 
 if(!isset($_SESSION['user'])){
     header("Location: store.php");
     exit;
 }
 
-// Initialize cart
 if(!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
 
-// Fetch products from database
 $stmt = $pdo->prepare("SELECT * FROM products");
 $stmt->execute();
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Handle Add to Cart
 if(isset($_POST['add_to_cart'])){
     $id = intval($_POST['product_id']);
     $qty = intval($_POST['quantity']);
@@ -47,7 +44,6 @@ if(isset($_POST['add_to_cart'])){
     exit;
 }
 
-// Handle Checkout
 if(isset($_POST['checkout'])){
     $_SESSION['cart'] = [];
     $message = "Order placed successfully!";
@@ -106,7 +102,6 @@ if(isset($_POST['checkout'])){
 <?php endforeach; ?>
 </div>
 
-<!-- Cart Sidebar -->
 <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 bg-black shadow-lg transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
     <div class="flex justify-between items-center p-4 border-b">
         <h2 class="text-xl font-bold text-white">Your Cart</h2>
@@ -137,8 +132,7 @@ if(isset($_POST['checkout'])){
 const openCartBtn = document.getElementById("open-cart");
 const closeCartBtn = document.getElementById("close-cart");
 const cartSidebar = document.getElementById("cart-sidebar");
-
-// Open and close buttons
+    
 openCartBtn.addEventListener("click", () => {
     cartSidebar.classList.remove("translate-x-full");
     cartSidebar.classList.add("translate-x-0");
@@ -148,7 +142,6 @@ closeCartBtn.addEventListener("click", () => {
     cartSidebar.classList.add("translate-x-full");
 });
 
-// Close cart when clicking outside
 document.addEventListener("click", (e) => {
     if (!cartSidebar.contains(e.target) && !openCartBtn.contains(e.target)) {
         cartSidebar.classList.add("translate-x-full");
