@@ -41,7 +41,6 @@ if(isset($_POST['register'])){
     } elseif($password !== $confirm){
         $error = "Passwords do not match!";
     } else {
-        // Check if email exists
         $check = $pdo->prepare("SELECT email FROM users WHERE email=? LIMIT 1");
         $check->execute([$email]);
         if($check->rowCount() > 0){
@@ -75,20 +74,18 @@ body, html {
     -webkit-text-fill-color: white;
 }
 
-/* Fullscreen background image */
 body {
     background-image: url('static/images/home-slider-2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-    align-items: flex-start; /* align form to top-left */
+    align-items: flex-start; 
 }
 
-/* Form card on left */
 .form-container {
     margin: 40px;
-    background-color: black; /* slight transparency */
+    background-color: black; 
     padding: 40px 30px;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -96,7 +93,6 @@ body {
     max-width: 420px;
 }
 
-/* Inputs */
 input {
     width: 100%;
     padding: 12px 14px;
@@ -116,7 +112,6 @@ input:focus {
     box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
 }
 
-/* Buttons */
 button {
     width: 100%;
     padding: 12px;
@@ -130,7 +125,6 @@ button:hover {
     transform: scale(1.02);
 }
 
-/* Login / Register buttons */
 .login-btn {
     background-color: #6366f1;
     color: white;
@@ -145,7 +139,6 @@ button:hover {
 
 .register-btn:hover { background-color: #059669; }
 
-/* Toggle text */
 .toggle-text {
     font-size: 14px;
     margin-top: 10px;
@@ -160,7 +153,6 @@ button:hover {
     <h2 class="text-2xl font-bold mb-4">KYT Helmet Shop</h2>
     <?php if($error) echo "<p class='text-red-400 mb-2'>$error</p>"; ?>
 
-    <!-- Login Form -->
     <form method="POST" id="login-form" class="space-y-3 slide-in-up">
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
@@ -168,7 +160,6 @@ button:hover {
         <p class="toggle-text">Don't have an account? <button type="button" id="show-register" class="underline text-indigo-400">Register</button></p>
     </form>
 
-    <!-- Register Form -->
     <form method="POST" id="register-form" class="space-y-3 hidden">
         <input type="text" name="name" placeholder="First Name" required>
         <input type="text" name="surname" placeholder="Surname" required>
