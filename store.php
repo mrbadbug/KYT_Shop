@@ -1,8 +1,6 @@
 <?php
 include 'session.php';
 if(!isset($_SESSION['user'])) { header("Location: index.php"); exit; }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +28,6 @@ if(!isset($_SESSION['user'])) { header("Location: index.php"); exit; }
 <body>
 <div class="hero-section"></div>
 
-<!-- Footer Marquee -->
 <footer class="footer-marquee">
     <div class="marquee">Welcome to KYT Helmet Shop — High-quality helmets for maximum safety. Explore our latest collection now!</div>
 </footer>
