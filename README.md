@@ -4,28 +4,28 @@ Integrate Database with Xampp:
   use kyt_shop;
 
 2.create table for users{
-  id
-  username
-  full_name
-  email
-  password_hash
+  id;
+  username;
+  full_name;
+  email;
+  password_hash;
   phone
   }
 
 3.create table for orders{
-  id
-  user_id
-  total_amount
-  shipping_info
-  products_json
+  id;
+  user_id;
+  total_amount;
+  shipping_info;
+  products_json;
   order_date
   }  
 
 4.create table for products{
-  id
-  name
-  description
-  price
+  id;
+  name;
+  description;
+  price;
   image_url (Given in the static/images folder)
   }  
 
