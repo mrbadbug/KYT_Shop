@@ -1,10 +1,8 @@
 <?php
-// Start session only if not already started
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Cart helpers
 function cartCount() {
     $count = 0;
     if(isset($_SESSION['cart'])){
