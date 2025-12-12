@@ -38,3 +38,4 @@ Future Improvements(working with it):
 -Custom animations
 -Search bar
 -More functionalities 
+-admin control
