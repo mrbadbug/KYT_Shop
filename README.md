@@ -33,7 +33,7 @@
 
 6. now put your project folder into xampp/htdocs, open xampp, start Apache, MySQL and paste project folder name into url and run.
 
-##Future Improvements(working with it):
+**Future Improvements(working with it):**
  - Modern UI
  - Custom animations
  - Search bar
