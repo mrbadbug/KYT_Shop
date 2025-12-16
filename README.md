@@ -1,4 +1,4 @@
-#Integrate Database with Xampp:
+**Integrate Database with Xampp:**
 
 1. Create database for kyt_shop;
    use kyt_shop;
